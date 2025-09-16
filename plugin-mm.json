@@ -1,0 +1,32 @@
+{
+  "MetaModuleBrandName": "monome",
+  "MetaModuleBrandSlug": "monome",
+  "MetaModuleBrandAliases": ["monome-rack"],
+  "MetaModulePluginMaintainer": "Michael Dewberry",
+  "MetaModulePluginMaintainerEmail": "me@example.com",
+  "MetaModulePluginMaintainerUrl": "https://dewb.github.io/monome-rack",
+  "MetaModuleDescription": "Metamodule port of the monome-rack VCV modules",
+  "MetaModuleIncludedModules":
+  [
+    {
+      "slug": "teletype",
+      "name": "teletype"
+    },
+    {
+      "slug": "ansible",
+      "name": "ansible"
+    },
+    {
+      "slug": "meadowphysics",
+      "name": "meadowphysics"
+    },
+    {
+      "slug": "earthsea",
+      "name": "earthsea"      
+    },
+    {
+      "slug": "whitewhale",
+      "name": "white whale"      
+    }
+  ]
+}

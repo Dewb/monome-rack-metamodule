@@ -1,0 +1,3 @@
+[submodule "monome-rack"]
+	path = monome-rack
+	url = https://github.com/Dewb/monome-rack
