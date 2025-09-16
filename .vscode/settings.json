@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "typeinfo": "cpp",
+        "bit": "cpp",
+        "compare": "cpp",
+        "cstddef": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "memory_resource": "cpp",
+        "type_traits": "cpp",
+        "new": "cpp",
+        "sstream": "cpp",
+        "tuple": "cpp"
+    }
+}

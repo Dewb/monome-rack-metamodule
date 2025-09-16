@@ -48,6 +48,7 @@ target_sources(MonomeMM PRIVATE
 
 # Add includes and compile options for source repo
 target_include_directories(MonomeMM PRIVATE 
+	${SOURCE_DIR}/src
 	${SOURCE_DIR}/src/common
 	${SOURCE_DIR}/src/common/core
 	${SOURCE_DIR}/src/common/util
@@ -65,14 +66,6 @@ target_include_directories(MonomeMM PRIVATE
     ${SOURCE_DIR}/firmware/mock_hardware
 )
 
-target_compile_options(MonomeMM PRIVATE -Wno-double-promotion)
-
-find_library(MATH_LIBRARY m)
-if(MATH_LIBRARY)
-    target_link_libraries(MyTarget PUBLIC ${MATH_LIBRARY})
-endif()
-
-set_property(TARGET MonomeMM PROPERTY CXX_STANDARD 17)
 
 # Call this to link and create the plugin file
 create_plugin(
