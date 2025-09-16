@@ -27,8 +27,6 @@ file(GLOB COMMON_SRCS CONFIGURE_DEPENDS
     "${SOURCE_DIR}/src/common/core/*.cpp" 
     "${SOURCE_DIR}/src/common/core/GridConnection/GridConnection.cpp"
     "${SOURCE_DIR}/src/common/core/GridConnection/GridConsumerBase.cpp"
-    "${SOURCE_DIR}/src/common/core/util/*.cpp"
-    "${SOURCE_DIR}/src/common/core/widgets/*.cpp"
     "${SOURCE_DIR}/src/virtualgrid/VirtualGridTheme.cpp"
     "${SOURCE_DIR}/lib/base64/*.cpp"
 )
