@@ -1,3 +1,4 @@
 build/
 .cache/
 metamodule-plugins/
+.DS_Store
