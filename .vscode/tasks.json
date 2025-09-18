@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "MetaModule firmware: Build plugin with CMake",
+            "label": "MetaModule plugin: Build plugin image with CMake",
             "type": "shell",
             "command": "cmake --fresh -B build -G Ninja && cmake --build build",
             "options": {
@@ -22,7 +22,7 @@
             }
         },
         {
-            "label": "MetaModule firmware: Clean plugin with CMake",
+            "label": "MetaModule plugin: Clean with CMake",
             "type": "shell",
             "command": "cmake --build build --target clean",
             "options": {
@@ -36,7 +36,7 @@
             ]
         },
         {
-            "label": "MetaModule simulator: Build with CMake",
+            "label": "MetaModule simulator: Build sim with CMake",
             "type": "shell",
             "command": "make clean && make",
             "options": {

@@ -61,8 +61,10 @@ RUN mkdir metamodule && \
     git submodule update --init --recursive --depth 1
 
 WORKDIR /workspaces/metamodule 
-RUN cat >> simulator/ext-plugins.cmake <<EOF
-list(APPEND ext_builtin_brand_paths "${CMAKE_CURRENT_LIST_DIR}/../../monome-rack-metamodule")
+RUN cat <<EOF > ext-plugins-preamble.txt
+list(APPEND ext_builtin_brand_paths "\${CMAKE_CURRENT_LIST_DIR}/../../monome-rack-metamodule")
 list(APPEND ext_builtin_brand_libname "MonomeMM")
 list(APPEND ext_builtin_brand_slug "monome")
 EOF
+RUN mv simulator/ext-plugins.cmake simulator/ext-plugins.orig && \
+    cat ext-plugins-preamble.txt simulator/ext-plugins.orig > simulator/ext-plugins.cmake
