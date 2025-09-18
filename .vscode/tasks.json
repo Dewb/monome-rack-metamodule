@@ -4,20 +4,70 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build CMake project",
+            "label": "MetaModule firmware: Build plugin with CMake",
             "type": "shell",
             "command": "cmake --fresh -B build -G Ninja && cmake --build build",
-            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "METAMODULE_SDK_DIR": "${workspaceFolder}/../metamodule-plugin-sdk"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
         },
         {
-            "label": "Clean CMake project",
+            "label": "MetaModule firmware: Clean plugin with CMake",
             "type": "shell",
             "command": "cmake --build build --target clean",
-            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "METAMODULE_SDK_DIR": "${workspaceFolder}/../metamodule-plugin-sdk"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "MetaModule simulator: Build with CMake",
+            "type": "shell",
+            "command": "make clean && make",
+            "options": {
+                "cwd": "${workspaceFolder}/../metamodule/simulator",
+                "env": {
+                    "METAMODULE_SDK_DIR": "${workspaceFolder}/../metamodule",
+                    "METAMODULE_PLUGIN_CPP": "plugin-sim.cpp"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "MetaModule simulator: Clean build folder",
+            "type": "shell",
+            "command": "rm -rf build",
+            "options": {
+                "cwd": "${workspaceFolder}/../metamodule/simulator",
+                "env": {
+                    "METAMODULE_SDK_DIR": "${workspaceFolder}/../metamodule",
+                    "METAMODULE_PLUGIN_CPP": "plugin-sim.cpp"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }

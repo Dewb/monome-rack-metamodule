@@ -10,6 +10,12 @@ else()
 	message("METAMODULE_SDK_DIR set to default: ${METAMODULE_SDK_DIR}")
 endif()
 
+if(DEFINED ENV{METAMODULE_PLUGIN_CPP})
+    set(METAMODULE_PLUGIN_CPP "$ENV{METAMODULE_PLUGIN_CPP}")
+else()
+    set(METAMODULE_PLUGIN_CPP "plugin-firmware.cpp")
+endif()
+
 include(${METAMODULE_SDK_DIR}/plugin.cmake)
 
 project(MonomeMetaModulePlugin 
@@ -37,7 +43,8 @@ file(GLOB_RECURSE EARTHSEA_SRCS CONFIGURE_DEPENDS "${SOURCE_DIR}/src/earthsea/*.
 file(GLOB_RECURSE WHITEWHALE_SRCS CONFIGURE_DEPENDS "${SOURCE_DIR}/src/whitewhale/*.cpp")
 
 target_sources(MonomeMM PRIVATE
-    "plugin.cpp"
+    "plugin-impl.cpp"
+    ${METAMODULE_PLUGIN_CPP}
     ${COMMON_SRCS}
     ${TELETYPE_SRCS}
     ${ANSIBLE_SRCS}

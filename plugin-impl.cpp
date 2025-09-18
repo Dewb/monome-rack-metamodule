@@ -12,12 +12,8 @@
 
 using namespace rack;
 
-Plugin* pluginInstance;
-
-void init(Plugin* p)
+void initPluginImpl(Plugin* p)
 {
-    pluginInstance = p;
-
     Model* modelWhiteWhale = createModel<WhiteWhaleModule, WhiteWhaleWidget>("whitewhale");
     Model* modelMeadowphysics = createModel<MeadowphysicsModule, MeadowphysicsWidget>("meadowphysics");
     Model* modelEarthsea = createModel<EarthseaModule, EarthseaWidget>("earthsea");
