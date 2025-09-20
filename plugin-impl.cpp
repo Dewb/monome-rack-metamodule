@@ -6,6 +6,8 @@
 #include "MeadowphysicsWidget.hpp"
 #include "TeletypeModule.hpp"
 #include "TeletypeWidget.hpp"
+#include "VirtualGridModule.hpp"
+#include "VirtualGridWidget.hpp"
 #include "WhiteWhaleModule.hpp"
 #include "WhiteWhaleWidget.hpp"
 //#include "TeletypeKeyboard.hpp"
@@ -21,12 +23,20 @@ void initPluginImpl(Plugin* p)
     Model* modelTeletype = createModel<TeletypeModule, TeletypeWidget>("teletype");
     Model* modelAnsible = createModel<AnsibleModule, AnsibleWidget>("ansible");
 
+    Model* modelGrid128 = createModel<VirtualGridModuleTemplate<16, 8>, VirtualGridWidgetTemplate<16, 8>>("grid128");
+    Model* modelGrid64 = createModel<VirtualGridModuleTemplate<8, 8>, VirtualGridWidgetTemplate<8, 8>>("grid64");
+    Model* modelGrid256 = createModel<VirtualGridModuleTemplate<16, 16>, VirtualGridWidgetTemplate<16, 16>>("grid256");
+
     p->addModel(modelWhiteWhale);
     p->addModel(modelMeadowphysics);
     p->addModel(modelEarthsea);
     
     p->addModel(modelTeletype);
     p->addModel(modelAnsible);
+
+    p->addModel(modelGrid128);
+    p->addModel(modelGrid64);
+    p->addModel(modelGrid256);
 
     initThemes();
 }

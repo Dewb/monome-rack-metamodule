@@ -33,7 +33,7 @@ file(GLOB COMMON_SRCS CONFIGURE_DEPENDS
     "${SOURCE_DIR}/src/common/core/*.cpp" 
     "${SOURCE_DIR}/src/common/core/GridConnection/GridConnection.cpp"
     "${SOURCE_DIR}/src/common/core/GridConnection/GridConsumerBase.cpp"
-    "${SOURCE_DIR}/src/virtualgrid/VirtualGridTheme.cpp"
+    "${SOURCE_DIR}/src/virtualgrid/*.cpp"
     "${SOURCE_DIR}/lib/base64/*.cpp"
 )
 file(GLOB_RECURSE TELETYPE_SRCS CONFIGURE_DEPENDS "${SOURCE_DIR}/src/teletype/*.cpp")

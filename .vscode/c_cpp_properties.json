@@ -4,9 +4,12 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/../metamodule-sdk"
+                "${workspaceFolder}/../metamodule-plugin-sdk/**",
+                "${workspaceFolder}/../metamodule-plugin-sdk/rack-interface/include/**"
             ],
-            "defines": [],
+            "defines": [
+                "METAMODULE"
+            ],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
             "cppStandard": "gnu++17",

@@ -27,6 +27,18 @@
     {
       "slug": "whitewhale",
       "name": "white whale"      
+    },
+    {
+      "slug": "grid128",
+      "name": "grid 128"
+    },
+    {
+      "slug": "grid64",
+      "name": "grid 64"
+    },
+    {
+      "slug": "grid256",
+      "name": "grid 256"
     }
   ]
 }
