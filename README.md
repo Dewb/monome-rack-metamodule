@@ -12,9 +12,11 @@ Work in progress port of [monome-rack](https://github.com/dewb/monome-rack) to t
 
 ### Building in a dev container
 
-This repo includes a [Dev Containers](https://containers.dev/) setup and VS Code tasks to build the firmware and the simulator in a Ubuntu container with all prerequistes taken care of. To use this mode, install the Dev Containers extension and run the command `Dev Containers: Reopen in Container`. 
+This repo includes a [Dev Containers](https://containers.dev/) setup and VS Code tasks to build the firmware and the simulator in a Ubuntu container with all prerequisites taken care of. To use this mode, install the Dev Containers extension and run the command `Dev Containers: Reopen in Container`. 
 
-The container cannot run and debug the graphical simulator, however.
+The container cannot run and debug the graphical simulator, however; that must be run on the host.
+
+Remember to run `git submodule update --init --recursive` on this repo before building.
 
 ### Building and running on the host
 
@@ -27,5 +29,7 @@ list(APPEND ext_builtin_brand_paths "${CMAKE_CURRENT_LIST_DIR}/../../monome-rack
 list(APPEND ext_builtin_brand_libname "MonomeMM")
 list(APPEND ext_builtin_brand_slug "monome")
 ```
+
+Remember to run `git submodule update --init --recursive` on this repo and the metamodule/metamodule-plugin-sdk repos before building.
 
 If you have opened the project in a dev container and want to return to host development, run the command `Dev Containers: Reopen Folder Locally`.
