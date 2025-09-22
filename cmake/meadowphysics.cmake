@@ -9,9 +9,6 @@ file(GLOB MEADOWPHYSICS_FIRMWARE_SRCS CONFIGURE_DEPENDS
 )
 
 list(APPEND MEADOWPHYSICS_FIRMWARE_INCLUDES 
-    ${FIRMWARE_DIR}/mock_hardware
-    ${FIRMWARE_DIR}/mock_hardware/include
-    ${FIRMWARE_DIR}/mock_hardware/include/avr32
 	${FIRMWARE_DIR}/meadowphysics/libavr32/src
 	${FIRMWARE_DIR}/meadowphysics/libavr32/src/usb/midi
 	${FIRMWARE_DIR}/meadowphysics/libavr32/src/usb/hid

@@ -46,7 +46,8 @@ file(GLOB_RECURSE WHITEWHALE_SRCS CONFIGURE_DEPENDS "${SOURCE_DIR}/src/whitewhal
 set(FIRMWARE_SRCS )
 set(FIRMWARE_INCLUDES )
 
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/meadowphysics.cmake)
+# include(${CMAKE_CURRENT_LIST_DIR}/cmake/meadowphysics.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/teletype.cmake)
 
 target_sources(MonomeMM PRIVATE
     "plugin-impl.cpp"
@@ -78,6 +79,9 @@ target_include_directories(MonomeMM PRIVATE
 	${SOURCE_DIR}/lib/cbbq
 	${SOURCE_DIR}/lib/base64
     ${SOURCE_DIR}/lib/serialosc
+    ${FIRMWARE_DIR}/mock_hardware
+    ${FIRMWARE_DIR}/mock_hardware/include
+    ${FIRMWARE_DIR}/mock_hardware/include/avr32
 	${FIRMWARE_INCLUDES}
 )
 
