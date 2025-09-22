@@ -28,6 +28,7 @@ add_library(MonomeMM STATIC)
 
 # Add sources from the monome-rack source repo
 set(SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/monome-rack)
+set(FIRMWARE_DIR ${SOURCE_DIR}/firmware)
 
 file(GLOB COMMON_SRCS CONFIGURE_DEPENDS 
     "${SOURCE_DIR}/src/common/core/*.cpp" 
@@ -42,13 +43,21 @@ file(GLOB_RECURSE MEADOWPHYSICS_SRCS CONFIGURE_DEPENDS "${SOURCE_DIR}/src/meadow
 file(GLOB_RECURSE EARTHSEA_SRCS CONFIGURE_DEPENDS "${SOURCE_DIR}/src/earthsea/*.cpp")
 file(GLOB_RECURSE WHITEWHALE_SRCS CONFIGURE_DEPENDS "${SOURCE_DIR}/src/whitewhale/*.cpp")
 
+set(FIRMWARE_SRCS )
+set(FIRMWARE_INCLUDES )
+
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/meadowphysics.cmake)
+
 target_sources(MonomeMM PRIVATE
     "plugin-impl.cpp"
     ${METAMODULE_PLUGIN_CPP}
     ${COMMON_SRCS}
     ${TELETYPE_SRCS}
     ${ANSIBLE_SRCS}
+    ${EARTHSEA_SRCS}
     ${MEADOWPHYSICS_SRCS}
+    ${WHITEWHALE_SRCS}
+    ${FIRMWARE_SRCS}
 )
 
 # Add includes and compile options for source repo
@@ -65,18 +74,21 @@ target_include_directories(MonomeMM PRIVATE
 	${SOURCE_DIR}/src/teletype
 	${SOURCE_DIR}/src/ansible
 	${SOURCE_DIR}/src/virtualgrid
+    ${SOURCE_DIR}/lib
+	${SOURCE_DIR}/lib/cbbq
 	${SOURCE_DIR}/lib/base64
     ${SOURCE_DIR}/lib/serialosc
-    ${SOURCE_DIR}/lib
-    ${SOURCE_DIR}/firmware/mock_hardware
+	${FIRMWARE_INCLUDES}
 )
-
 
 # Call this to link and create the plugin file
 create_plugin(
     SOURCE_LIB      MonomeMM                                        # The cmake target name (defined in add_target)
-    PLUGIN_NAME     monome                                        # This must match the brand "slug" used in VCV Rack
+    PLUGIN_NAME     monome                                          # This must match the brand "slug" used in VCV Rack
     PLUGIN_JSON     ${SOURCE_DIR}/plugin.json                       # Path to the plugin.json file used by VCV Rack
     SOURCE_ASSETS   ${CMAKE_CURRENT_LIST_DIR}/assets                # Path to the assets/ dir containing the PNGs
     DESTINATION     ${CMAKE_CURRENT_LIST_DIR}/metamodule-plugins    # Path to where you want the plugin file output
 )
+
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --save-temps")
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --save-temps")
